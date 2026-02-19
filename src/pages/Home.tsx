@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Services from "../pages/Services";
-import HeroSection from "../components/HeroSection";
+import HeroSection from "../components/heroSection";
 import Carousel from "../components/Carousel";
 import HistoryTimeline from '../components/HistoryTimeline';
 import CustomerGrowthChart from "../components/CustomerGrowthChart";
