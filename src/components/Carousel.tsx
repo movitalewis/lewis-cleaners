@@ -1,4 +1,7 @@
 import React from "react";
+import slide1 from '../assets/lewis-cleaners.jpg';
+import slide2 from '../assets/lewis-cleaners.jpg';
+import slide3 from '../assets/lewis-cleaners.jpg';
 
 interface CarouselItem {
   id: number;
@@ -12,19 +15,19 @@ const carouselData: CarouselItem[] = [
     id: 1,
     title: "Professional Laundry Services",
     description: "Clean, fresh and hygienic washing for everyday clothes.",
-    image: "../src/assets/lewis-cleaners.jpg",
+    image: slide1,
   },
   {
     id: 2,
     title: "Perfect Ironing & Pressing",
     description: "Crisp and wrinkle-free clothes every time.",
-    image: "../src/assets/lewis-cleaners.jpg",
+    image: slide2,
   },
   {
     id: 3,
     title: "Special Care for Delicates",
     description: "Sarees, suits and premium fabrics handled with care.",
-    image: "../src/assets/lewis-cleaners.jpg",
+    image: slide3,
   },
 ];
 
