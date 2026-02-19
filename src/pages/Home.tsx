@@ -9,15 +9,16 @@ import Testimonials from "../components/Testimonials";
 function Home() {
     const mapRef = useRef<HTMLDivElement | null>(null);
 
-    const scrollToMap = () => {
-        mapRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        });
-    };
+    // const scrollToMap = () => {
+    //     mapRef.current?.scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "start",
+    //     });
+    // };
     return (
         <>
-            <HeroSection onCTAClick={scrollToMap}></HeroSection>
+            {/* <HeroSection onCTAClick={scrollToMap}></HeroSection> */}
+            <HeroSection></HeroSection>
             <Services></Services>
             <Carousel></Carousel>
             <Testimonials></Testimonials>
