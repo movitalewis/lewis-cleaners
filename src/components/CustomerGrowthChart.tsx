@@ -39,21 +39,22 @@ const CustomerGrowthChart: React.FC = () => {
   return (
     <section className="customer-growth-section">
       <h2>Customer Growth Over the Years</h2>
-
-      <ResponsiveContainer width="100%" height={350}>
-        <LineChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" />
-          <YAxis />
-          <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="customers"
-            stroke="#3b82f6"
-            strokeWidth={3}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className="container">
+        <ResponsiveContainer width="100%" height={450}>
+          <LineChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="year" />
+            <YAxis />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="customers"
+              stroke="#3b82f6"
+              strokeWidth={3}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </section>
   );
 };

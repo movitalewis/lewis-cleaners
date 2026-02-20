@@ -33,7 +33,7 @@ const carouselData: CarouselItem[] = [
 
 const Carousel: React.FC = () => {
   return (
-    <section className="bg-light">
+    <section className="carousel-section">
         <div className="container">
             <div
             id="laundryCarousel"

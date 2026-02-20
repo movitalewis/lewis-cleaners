@@ -18,7 +18,7 @@ const testimonialsData: Testimonial[] = [
     name: "Rahul Mehta",
     feedback:
       "We have been using their service for years. Honest work and always on time.",
-    rating: 5,
+    rating: 4,
   },
   {
     name: "Anita Shah",
@@ -30,7 +30,7 @@ const testimonialsData: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="testimonials-section">
+    <section className="testimonials-section bg-light">
       <div className="container">
         <h2 className="section-title">What Our Customers Say</h2>
 
