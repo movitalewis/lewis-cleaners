@@ -1,7 +1,7 @@
 import "../styles/map.less";
 import { forwardRef } from "react";
 
-const Map = forwardRef<HTMLDivElement>((props, ref) => {
+const Map = forwardRef<HTMLDivElement>((_, ref) => {
   return (
         <>  
             <section ref={ref} className="container map-section py-3">
