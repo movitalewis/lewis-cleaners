@@ -1,11 +1,13 @@
 import videomp4 from '../assets/ironing-video.mp4';
 import videowebm from '../assets/ironing-video.webm';
+import { useTranslation } from "react-i18next";
 
 type HeroProps = {
   onCTAClick: () => void;
 };
 
 const HeroSection = ({ onCTAClick }: HeroProps) => {
+    const { t } = useTranslation();
     return (
         <section className="hero-section">
             <div className="video-container">
@@ -16,19 +18,16 @@ const HeroSection = ({ onCTAClick }: HeroProps) => {
                 </video>
                 <div className="video-content">
                     <div className="video-text">
-                        <h1>Clean Clothes. Honest Service.</h1>
-                        <p>Professional Laundry Since 1994 </p>
-                        <p>
-                        Family-owned laundry service providing washing, ironing,
-                        and special garment care with love and responsibility.
-                        </p>
+                        <h1>{t("hero.title")}</h1>
+                        <p>{t("hero.subtitle")}</p>
+                        <p>{t("hero.description")}</p>
 
                         <div className="hero-buttons">
                         <a href="tel:+919224337095" className="btn btn-primary mx-3">
-                            Call Now : +91 9224337095
+                            {t("hero.callCta")}
                         </a>
                         <button className="btn btn-outline-primary" onClick={onCTAClick}>
-                            Visit Our Store
+                            {t("hero.findCta")}
                         </button>
                     </div>
 

@@ -4,6 +4,8 @@ import type { AppDispatch } from "../../../store/store";
 import { useEffect, useState, type SetStateAction } from "react";
 import { NavLink } from "react-router-dom";
 import { fetchMenu, type MenuItem } from "../../../services/menuApi";
+import LanguageSelector from "../../LanguageSelector";
+
 //import { useAuth } from "../../../auth/AuthContext";
 
 /** Menu item contract */
@@ -103,6 +105,7 @@ const Nav = () => {
         ))}
       </ul>
       <button onClick={() => dispatch(logout())}>Logout</button>
+      <LanguageSelector />
     </nav>
   );
 };

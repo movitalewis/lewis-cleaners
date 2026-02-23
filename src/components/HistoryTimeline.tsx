@@ -1,44 +1,38 @@
 import React from "react";
 import "../styles/history-timeline.less";
+import { useTranslation } from "react-i18next";
 
 interface Milestone {
   year: string;
-  title: string;
-  description: string;
 }
 
 const milestones: Milestone[] = [
   {
-    year: "1994",
-    title: "Business Started",
-    description:
-      "Started as a small family-run laundry with one washing machine and a lot of hard work.",
+    year: "1994"
   },
   {
-    year: "1998",
-    title: "Growing Trust",
-    description:
-      "Became a trusted name in the neighborhood with regular customers.",
+    year: "1998"
   },
   {
-    year: "2001",
-    title: "New Services Added",
-    description:
-      "Introduced ironing, pressing, and special care for delicate garments.",
+    year: "2001"
   },
   {
-    year: "2024",
-    title: "Serving Generations",
-    description:
-      "Proudly serving families across generations with honesty and care.",
+    year: "2024"
   },
 ];
 
 const HistoryTimeline: React.FC = () => {
+  const { t } = useTranslation();
+  const journey = t("journey.years", {
+    returnObjects: true,
+    }) as {
+        journeyTitle: string;
+        journeyDesc: string;
+    }[];
   return (
     <section className="history-section">
       <div className="container">
-        <h2 className="section-title">Our Journey</h2>
+        <h2 className="section-title">{t("journey.title")}</h2>
 
         <div className="timeline">
           {milestones.map((item, index) => (
@@ -46,8 +40,8 @@ const HistoryTimeline: React.FC = () => {
               <div className="timeline-dot" />
               <div className="timeline-content">
                 <span className="year">{item.year}</span>
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
+                <h4>{journey[index]?.journeyTitle}</h4>
+                <p>{journey[index]?.journeyDesc}</p>
               </div>
             </div>
           ))}
