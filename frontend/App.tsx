@@ -3,21 +3,21 @@
 // import viteLogo from '/vite.svg'
 import { Routes, Route } from "react-router-dom";
 import './App.css'
-import './styles/main.less'
-import './styles/header.less'
-import './styles/home.less'
-import './styles/services.less'
-import { AuthProvider } from "./auth/AuthContext";
-import PublicLayout from "./layouts/PublicLayout";
-import PrivateLayout from "./layouts/PrivateLayout";
-import ProtectedRoute from "./auth/ProtectedRoute";
+import './src/styles/main.less'
+import './src/styles/header.less'
+import './src/styles/home.less'
+import './src/styles/services.less'
+import { AuthProvider } from "./src/auth/AuthContext";
+import PublicLayout from "./src/layouts/PublicLayout";
+import PrivateLayout from "./src/layouts/PrivateLayout";
+import ProtectedRoute from "./src/auth/ProtectedRoute";
 
-import Login from "./pages/Login/Login";
-import Products from "./pages/Products";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import Services from "./pages/Services";
-import Home from "./pages/Home";
+import Login from "./src/pages/Login/Login";
+import Products from "./src/pages/Products";
+import AboutUs from "./src/pages/AboutUs";
+import ContactUs from "./src/pages/ContactUs";
+import Services from "./src/pages/Services";
+import Home from "./src/pages/Home";
 
 function App() {
   //const [count, setCount] = useState(0)

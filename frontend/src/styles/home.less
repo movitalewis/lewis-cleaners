@@ -1,0 +1,93 @@
+.hero-section {
+    position: relative;
+
+    .hero-content {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        background: rgba(0, 0, 0, .5);
+        height: 100%;
+
+        .container {
+            height: 100%;
+
+            .inner-container {
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+
+                .heroForm {
+                    background: #d6d6d6;
+                    border-radius: 5px;
+                    padding: 20px;
+                    max-width: 320px;
+                    width: 100%;
+                    text-align: center;
+                    height: 70%;
+                    margin-right: 35px;
+
+                    .input-field {
+                        padding: 0 0 10px;
+
+                        input {
+                            display: block;
+                            padding: 0 5px 10px;
+                            margin: 0 0 5px;
+                            border: none;
+                            border-bottom: 1px solid;
+                            background: none;
+                            width: 100%;
+                            
+                            &:focus,
+                            &:active {
+                                outline: 0;
+                            }
+                        }
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            color: red;
+                            visibility: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .video-container {
+        max-height: 500px;
+        position: relative;
+        overflow: hidden;
+
+        .video-content {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .7);
+            text-align: center;
+        }
+    }
+
+    h1,
+    p {
+        color: #ffffff;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+}
+
+.bottom-section {
+    section {
+        width: 50%;
+    }
+}

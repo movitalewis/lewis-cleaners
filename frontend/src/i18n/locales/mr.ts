@@ -7,6 +7,13 @@ export const mr = {
     callCta: "आता कॉल करा : +91 9224337095",
     findCta: "आमचे स्थान पहा"
   },
+  contactForm: {
+    name: "Name",
+    nameError: "Please enter your name",
+    telephone: "Mobile No.",
+    telError: "Please enter your mobile number",
+    formCta: "Inquire Now"
+  },
   ourServices: {
     title: "आमच्या सेवा",
     service1: "इस्त्री",

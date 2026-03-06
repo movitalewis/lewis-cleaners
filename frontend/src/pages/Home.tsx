@@ -1,4 +1,4 @@
-import Services from "../pages/Services";
+import Services from "./Services";
 import HeroSection from "../components/heroSection";
 import Carousel from "../components/Carousel";
 import HistoryTimeline from '../components/HistoryTimeline';
@@ -23,8 +23,10 @@ function Home() {
                 <Carousel></Carousel>
                 <Testimonials></Testimonials>
                 <HistoryTimeline></HistoryTimeline>
-                <CustomerGrowthChart></CustomerGrowthChart>
-                <Map ref={locationRef}></Map>
+                <section className="container d-flex bottom-section">
+                    <CustomerGrowthChart></CustomerGrowthChart>
+                    <Map ref={locationRef}></Map>
+                </section>
             </main>
         </>
     )

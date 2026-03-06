@@ -6,6 +6,16 @@ export const en = {
     callCta: "Call Now : +91 9224337095",
     findCta: "Find Our Location"
   },
+  contactForm: {
+    name: "Name",
+    nameError: "Please enter your name",
+    email: "Email",
+    emailError: "Please enter your Email",
+    telephone: "Mobile No.",
+    telError: "Please enter your mobile number",
+    message: "Your Message",
+    formCta: "Inquire Now"
+  },
   ourServices: {
     title: "Our Services",
     service1: "Ironing",
