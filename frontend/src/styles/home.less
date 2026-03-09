@@ -23,13 +23,13 @@
                     max-width: 320px;
                     width: 100%;
                     text-align: center;
-                    height: 70%;
                     margin-right: 35px;
 
                     .input-field {
                         padding: 0 0 10px;
 
-                        input {
+                        input, 
+                        textarea {
                             display: block;
                             padding: 0 5px 10px;
                             margin: 0 0 5px;
@@ -42,6 +42,10 @@
                             &:active {
                                 outline: 0;
                             }
+                        }
+
+                        textarea {
+                            resize: none;
                         }
 
                         span {
