@@ -20,7 +20,7 @@ const ContactUsForm = () => {
     setSubmitting(true);
 
     try {
-        const res = await fetch("http://localhost:5000/api/contacts", {
+        const res = await fetch("https://lewis-cleaners.onrender.com/api/contacts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
