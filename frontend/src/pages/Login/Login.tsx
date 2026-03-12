@@ -12,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
+      const res = await fetch(`${API_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
