@@ -10,6 +10,8 @@ router.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
 
+    console.log("REQ BODY:", req.body);
+
     const allUsers = await Login.find();
     console.log("ALL USERS:", allUsers);
 

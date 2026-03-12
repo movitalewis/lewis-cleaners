@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import contactRoutes from "./routes/contactRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
+import Login from "./models/User.js";
 
 
 dotenv.config();
@@ -12,12 +13,29 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log("DB NAME:", mongoose.connection.name);
+
 console.log("Mongo URI:", process.env.MONGO_URI);
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected"))
-  .catch((err) => console.error("❌ MongoDB Connection Error:", err.message));
+  .then(async () => {
+  console.log("✅ MongoDB Connected");
+
+  // Seed admin user
+  const existing = await Login.findOne({ username: "admin" });
+
+  if (!existing) {
+    await Login.create({
+      username: "admin",
+      password: "admin123"
+    });
+
+    console.log("Admin user created");
+  }
+
+})
+.catch(err => console.log("MongoDB Connection Error:", err));
 
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
