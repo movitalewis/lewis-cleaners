@@ -49,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="form">
       <h2>Login</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
 
