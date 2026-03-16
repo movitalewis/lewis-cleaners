@@ -1,4 +1,5 @@
 import express from "express";
+import bcrypt from "bcrypt";
 import Login from "../models/User.js";
 
 const router = express.Router();
@@ -15,17 +16,24 @@ router.post("/", async (req, res) => {
     const allUsers = await Login.find();
     console.log("ALL USERS:", allUsers);
 
-    const user = await Login.findOne({ username, password });
+    const user = await Login.findOne({ username });
     console.log("USER FOUND:", user);
 
-    if (!user) {
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (!passwordMatch) {
       return res.status(401).json({
         success: false,
         message: "Invalid credentials",
       });
     }
 
-    res.json({ success: true, user });
+    res.json({ 
+      success: true, 
+      user: {
+        username: user.username
+      }
+    });
 
   } catch (error) {
     console.error(error);

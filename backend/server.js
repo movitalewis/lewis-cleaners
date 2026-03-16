@@ -2,18 +2,20 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import bcrypt from "bcrypt";
 import contactRoutes from "./routes/contactRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
 import Login from "./models/User.js";
 
   // Seed admin user
   export const seedAdmin = async () => {
-  const existing = await User.findOne({ username: "admin" });
+  const existing = await Login.findOne({ username: "admin" });
 
   if (!existing) {
+    const hashedPassword = await bcrypt.hash("admin123", 10);
     await Login.create({
       username: "admin",
-      password: "admin123",
+      password: hashedPassword,
     });
     console.log("✅ Admin user seeded");
   } else {
