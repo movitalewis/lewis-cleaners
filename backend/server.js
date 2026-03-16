@@ -6,7 +6,20 @@ import contactRoutes from "./routes/contactRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
 import Login from "./models/User.js";
 
+  // Seed admin user
+  export const seedAdmin = async () => {
+  const existing = await User.findOne({ username: "admin" });
 
+  if (!existing) {
+    await Login.create({
+      username: "admin",
+      password: "admin123",
+    });
+    console.log("✅ Admin user seeded");
+  } else {
+    console.log("Admin already exists");
+  }
+};
 dotenv.config();
 
 const app = express();
@@ -21,19 +34,7 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(async () => {
   console.log("✅ MongoDB Connected");
-
-  // Seed admin user
-  const existing = await Login.findOne({ username: "admin" });
-
-  if (!existing) {
-    await Login.create({
-      username: "admin",
-      password: "admin123"
-    });
-
-    console.log("Admin user created");
-  }
-
+  await seedAdmin();
 })
 .catch(err => console.log("MongoDB Connection Error:", err));
 
