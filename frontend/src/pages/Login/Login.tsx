@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../../store/authSlice";
 import type { AppDispatch } from "../../store/store";
+import API_URL from "../../config/api";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>(); // ✅ hook at top
@@ -12,7 +13,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
