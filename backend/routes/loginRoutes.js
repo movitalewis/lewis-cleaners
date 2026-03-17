@@ -1,4 +1,5 @@
 import express from "express";
+import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import Login from "../models/User.js";
 
@@ -28,11 +29,19 @@ router.post("/", async (req, res) => {
       });
     }
 
+    // ✅ Generate token
+    const token = jwt.sign(
+      { id: user._id, username: user.username },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
     res.json({ 
       success: true, 
       user: {
         username: user.username
-      }
+      },
+      token,
     });
 
   } catch (error) {

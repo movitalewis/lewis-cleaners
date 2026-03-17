@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../../store/authSlice";
 import type { AppDispatch } from "../../store/store";
-import API_URL from "../../config/api";
+import { getUser } from "../../utils/storage";
+import { apiFetch } from "../../services/api";
+
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>(); // ✅ hook at top
@@ -14,6 +16,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  useEffect(() => {
+    const user = getUser();
+    if (user?.token) {
+      navigate("/");
+    }
+  }, []);
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -22,11 +31,8 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await fetch(`${API_URL}/api/login`, {
+      const res = await apiFetch("/api/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ username, password }),
       });
 
@@ -37,7 +43,11 @@ const Login = () => {
       }
 
       // ✅ Store user in Redux
-      dispatch(loginSuccess(data.user));
+      dispatch(loginSuccess({
+        username: data.user.username,
+        token: data.token
+      }
+    ));
 
       navigate("/");
     } catch (err: any) {

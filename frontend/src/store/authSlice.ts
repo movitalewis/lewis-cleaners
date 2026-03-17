@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { getUser, saveUser, removeUser } from "../utils/storage";
 
 type User = {
-  name: string;
+  username: string;
   token: string;
 };
 
