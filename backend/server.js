@@ -1,11 +1,19 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+import fs from "fs";
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 import cors from "cors";
 import bcrypt from "bcrypt";
 import contactRoutes from "./routes/contactRoutes.js";
 import loginRoutes from "./routes/loginRoutes.js";
 import Login from "./models/User.js";
+import aiRoutes from "./routes/ai.js";
+
+//dotenv.config();
+
+console.log("ENV EXISTS:", fs.existsSync("./.env"));
 
   // Seed admin user
   export const seedAdmin = async () => {
@@ -22,11 +30,11 @@ import Login from "./models/User.js";
     console.log("Admin already exists");
   }
 };
-dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/ai", aiRoutes);
 
 console.log("DB NAME:", mongoose.connection.name);
 

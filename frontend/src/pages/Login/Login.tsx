@@ -31,14 +31,14 @@ const Login = () => {
     setError("");
 
     try {
-      const res = await apiFetch("/api/login", {
+      const data = await apiFetch("/api/login", {
         method: "POST",
         body: JSON.stringify({ username, password }),
       });
 
-      const data = await res.json();
+      //const data = await res.json();
 
-      if (!res.ok) {
+      if (!data.success) {
         throw new Error(data.message || "Invalid credentials");
       }
 
