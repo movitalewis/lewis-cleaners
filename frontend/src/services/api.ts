@@ -8,14 +8,12 @@ export const apiFetch = async (
 ) => {
   const user = getUser();
 
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-    ...(options.headers || {}),
-  };
+  const headers = new Headers();
 
-  // ✅ Add token automatically
+  headers.append("Content-Type", "application/json");
+
   if (user?.token) {
-    headers["Authorization"] = `Bearer ${user.token}`;
+    headers.append("Authorization", `Bearer ${user.token}`);
   }
 
   const res = await fetch(`${API_URL}${endpoint}`, {
