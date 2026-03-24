@@ -23,6 +23,8 @@ export const apiFetch = async (
 
   const data = await res.json();
 
+  console.log("FULL RESPONSE:", data);
+
   if (!res.ok) {
     throw new Error(data.message || "API Error");
   }
