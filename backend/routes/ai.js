@@ -4,7 +4,7 @@ import Anthropic from "@anthropic-ai/sdk";
 const router = express.Router();
 
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  apiKey: "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",
 });
 
 const PRICE_LIST = {
