@@ -14,7 +14,6 @@ import aiRoutes from "./routes/ai.js";
 //dotenv.config();
 
 console.log("ENV EXISTS:", fs.existsSync("./.env"));
-console.log("ANTHROPIC KEY:", process.env.ANTHROPIC_API_KEY);
 
   // Seed admin user
   export const seedAdmin = async () => {
